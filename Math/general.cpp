@@ -1,4 +1,16 @@
 typedef long long ll;
+const int MOD = 1e9+7;
+
+ll gcd(ll a, ll b) { return b == 0? a : gcd(b, a%b); }
+ll lcm(ll a, ll b) { return a * b / gcd(a,b); }
+ll fpow(ll x, ll k) {
+    ll res = 1;
+    for(; k; k >>= 1) {
+        if (k & 1) res = res * x % MOD;
+        x = x * x % MOD;
+    }
+    return res;
+}
 
 // Complexity O(k), invented by Long, may not always correct =))
 ll combination(ll n, ll k) {
