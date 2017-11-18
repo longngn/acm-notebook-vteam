@@ -1,3 +1,5 @@
+#include <vector>
+using namespace std;
 typedef long long ll;
 const int MOD = 1e9+7;
 
@@ -9,6 +11,12 @@ ll fpow(ll x, ll k) {
         if (k & 1) res = res * x % MOD;
         x = x * x % MOD;
     }
+    return res;
+}
+vector<int> digits(ll x) {
+	vector<int> res;
+	for(; x/10; x/=10) res.push_back(x%10);
+    res.push_back(x);
     return res;
 }
 
